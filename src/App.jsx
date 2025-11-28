@@ -5,6 +5,8 @@ import './App.css'
 import { Fragment } from 'react'
 
 import Header from './components/Header'
+import Home from './components/Home'
+import Content from './components/Content'
 
 let prem = "prem"
 
@@ -37,9 +39,11 @@ function App() {
 
 
       <Header />
-      <h1>Counter App - {count}</h1>
+      <Home />
+      <Content />
+      {/* <h1>Counter App - {count}</h1>
       <button onClick={handleIncrease}>Increase</button>
-      <button onClick={handledecrease}>Decrese</button>
+      <button onClick={handledecrease}>Decrese</button> */}
     </>
   );
 }

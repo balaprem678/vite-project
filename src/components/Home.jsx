@@ -1,8 +1,7 @@
-import React from "react";
-import { getUsers, getUserById } from './api';
+import React, { useState, useEffect } from "react";
+import { getUsers, getUserById } from "./api";
 
 function Home() {
-
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -15,8 +14,7 @@ function Home() {
         const data = await getUsers();
         setUsers(data);
       } catch (err) {
-        setError('Failed to fetch users');
-        console.error(err);
+        setError("Failed to fetch users");
       } finally {
         setLoading(false);
       }
@@ -25,14 +23,12 @@ function Home() {
     fetchUsers();
   }, []);
 
-  // Function to fetch a single user by ID
   const fetchUserById = async (id) => {
     try {
       const user = await getUserById(id);
-      console.log('Fetched user:', user);
-      // Do something with the user data
+      console.log("Fetched user:", user);
     } catch (err) {
-      console.error('Error fetching user:', err);
+      console.error("Error fetching user:", err);
     }
   };
 
@@ -52,12 +48,14 @@ function Home() {
           >
             <h3 className="font-semibold">{user.name}</h3>
             <p className="text-sm text-gray-600">{user.email}</p>
-            <p className="text-sm text-gray-500">{user.job} - {user.city}</p>
+            <p className="text-sm text-gray-500">
+              {user.job} - {user.city}
+            </p>
           </div>
         ))}
       </div>
     </>
-  )
+  );
 }
 
 export default Home;
