@@ -1,33 +1,45 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { Fragment } from 'react'
+
+import Header from './components/Header'
+
+let prem = "prem"
+
+let isLog = false;
 
 function App() {
-  const [count, setCount] = useState(0)
 
+  let arr1 = [1, () => { }]
+  let [a, b] = arr1
+  let [count, setCount] = useState(0)
+
+  function handleIncrease() {
+    count += 1
+    console.log(count)
+  }
+  function handledecrease() {
+    count -= 1
+    console.log(count)
+  }
   return (
+    // <Fragment key={0}> 
+    //   <p>{prem}</p>
+    //   <label htmlFor=""></label>
+    //   <input type="text" />
+    //   {
+    //     isLog && <p>welcome</p>
+    //   }
+    // </Fragment>
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+
+      <Header />
+      <h1>Counter App - {count}</h1>
+      <button onClick={handleIncrease}>Increase</button>
+      <button onClick={handledecrease}>Decrese</button>
     </>
   )
 }
