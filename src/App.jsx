@@ -41,7 +41,7 @@ function App() {
       <button onClick={handleIncrease}>Increase</button>
       <button onClick={handledecrease}>Decrese</button>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
